@@ -16,19 +16,32 @@ export const MenuListItem = (props) => {
 
     const getBackgroundColor = () =>
     {
-        console.log(isHovered);
+        // console.log(isHovered);
         if(isHovered)
         {
             return "#a5e9ff";
         }
         else
         {
-            return "#eff0ef";
+            if(props.isSelected)
+            {
+                return "#26baea";
+            }
+
+            else{
+                return "#eff0ef";
+            }
         }
     };
 
+    const onItemClick = () =>
+    {
+        props.onClick(props.difficulty)
+    };
+
     return (
-            <div className={style.container} 
+            <div onClick = {onItemClick} 
+            className={style.container} 
             onMouseEnter={activateHover} onMouseLeave={deactivateHover}
             style = {{backgroundColor: getBackgroundColor()}}
             

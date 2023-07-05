@@ -1,0 +1,1 @@
+export const DIFFICULTIES = ["Novice", "Intermediate", "Veteran"];

@@ -1,13 +1,22 @@
 import { MenuListItem } from "../MenuListItem/MenuListItem";
-import style from "./style.module.css"
+import { DIFFICULTIES } from "./constants";
+import style from "./style.module.css";
+
 export function MenuList(props)
 {
     return (
         <div className={style.container}>
-            <MenuListItem difficulty = "Low"/>
-            <MenuListItem difficulty = "Medium"/>
-            <MenuListItem difficulty = "High"/>
-            <MenuListItem difficulty = "Insane"/>
+        {
+            DIFFICULTIES.map((difficulty) => {
+                return (
+                    <MenuListItem 
+                    isSelected = {props.difficulty === difficulty} 
+                    onClick = {props.onItemClick} 
+                    difficulty = {difficulty}
+                    />
+                )
+            })
+        }
         </div>
     );
 }
